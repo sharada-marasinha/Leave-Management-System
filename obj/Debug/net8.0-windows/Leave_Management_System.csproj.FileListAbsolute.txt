@@ -14,3 +14,5 @@ D:\HND\Assigmnets\01\Leave_Management_System\Leave_Management_System\obj\Debug\n
 D:\HND\Assigmnets\01\Leave_Management_System\Leave_Management_System\obj\Debug\net8.0-windows\Leave_Management_System.pdb
 D:\HND\Assigmnets\01\Leave_Management_System\Leave_Management_System\obj\Debug\net8.0-windows\Leave_Management_System.genruntimeconfig.cache
 D:\HND\Assigmnets\01\Leave_Management_System\Leave_Management_System\obj\Debug\net8.0-windows\ref\Leave_Management_System.dll
+D:\HND\Assigmnets\01\Leave_Management_System\Leave_Management_System\obj\Debug\net8.0-windows\Leave_Management_System.Properties.Resources.resources
+D:\HND\Assigmnets\01\Leave_Management_System\Leave_Management_System\obj\Debug\net8.0-windows\Leave_Management_System.sourcelink.json
