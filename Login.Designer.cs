@@ -1,6 +1,6 @@
 ﻿namespace Leave_Management_System
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             button1 = new Button();
-            textBox1 = new TextBox();
+            txtPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            txtUserName = new TextBox();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
             pictureBox2 = new PictureBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -60,12 +60,12 @@
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtPassword
             // 
-            textBox1.Location = new Point(400, 340);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(321, 27);
-            textBox1.TabIndex = 1;
+            txtPassword.Location = new Point(400, 340);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(321, 27);
+            txtPassword.TabIndex = 1;
             // 
             // label1
             // 
@@ -85,12 +85,12 @@
             label2.TabIndex = 4;
             label2.Text = "User Name";
             // 
-            // textBox2
+            // txtUserName
             // 
-            textBox2.Location = new Point(400, 236);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(321, 27);
-            textBox2.TabIndex = 3;
+            txtUserName.Location = new Point(400, 236);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(321, 27);
+            txtUserName.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -115,48 +115,15 @@
             panel1.Size = new Size(351, 584);
             panel1.TabIndex = 6;
             // 
-            // label3
+            // pictureBox2
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(71, 64);
-            label3.Name = "label3";
-            label3.Size = new Size(211, 38);
-            label3.TabIndex = 7;
-            label3.Text = "Grifindo Lanka";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(82, 114);
-            label4.Name = "label4";
-            label4.Size = new Size(190, 20);
-            label4.TabIndex = 7;
-            label4.Text = "Leave Management System";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(124, 492);
-            label5.Name = "label5";
-            label5.Size = new Size(95, 17);
-            label5.TabIndex = 8;
-            label5.Text = "Grifindolanka.lk";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(124, 519);
-            label6.Name = "label6";
-            label6.Size = new Size(94, 17);
-            label6.TabIndex = 9;
-            label6.Text = "+11223344556";
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(23, 157);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(290, 296);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
             // 
             // label7
             // 
@@ -169,15 +136,48 @@
             label7.TabIndex = 10;
             label7.Text = "grifindolanka@gmail.com";
             // 
-            // pictureBox2
+            // label6
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(23, 157);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(290, 296);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(124, 519);
+            label6.Name = "label6";
+            label6.Size = new Size(94, 17);
+            label6.TabIndex = 9;
+            label6.Text = "+11223344556";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(124, 492);
+            label5.Name = "label5";
+            label5.Size = new Size(95, 17);
+            label5.TabIndex = 8;
+            label5.Text = "Grifindolanka.lk";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(82, 114);
+            label4.Name = "label4";
+            label4.Size = new Size(190, 20);
+            label4.TabIndex = 7;
+            label4.Text = "Leave Management System";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(71, 64);
+            label3.Name = "label3";
+            label3.Size = new Size(211, 38);
+            label3.TabIndex = 7;
+            label3.Text = "Grifindo Lanka";
             // 
             // Form1
             // 
@@ -187,12 +187,12 @@
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
-            Controls.Add(textBox2);
+            Controls.Add(txtUserName);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtPassword);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -204,10 +204,10 @@
         #endregion
 
         private Button button1;
-        private TextBox textBox1;
+        private TextBox txtPassword;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txtUserName;
         private PictureBox pictureBox1;
         private Panel panel1;
         private Label label5;

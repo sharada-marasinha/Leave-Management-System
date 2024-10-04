@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Leave_Management_System
 {
-    public partial class Dashbord : Form
+    public partial class AdminDashbord : Form
     {
-        public Dashbord()
+        public AdminDashbord()
         {
             InitializeComponent();
         }
