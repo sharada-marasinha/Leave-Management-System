@@ -10,13 +10,18 @@ namespace Leave_Management_System.DB
     internal class DBConnection
     {
         private static DBConnection instance;
-        private string connectionString = "Data Source=SHARADA\\SQLEXPRESS01;Initial Catalog=leavemanagmenet;Integrated Security=True;Encrypt=False";
         private SqlConnection connection;
+
+
         private DBConnection() {
-                    connection = new SqlConnection(connectionString);
+                    connection = new SqlConnection("Data Source=SHARADA\\SQLEXPRESS01;Initial Catalog=leavemanagmenet;Integrated Security=True;Encrypt=False");
         }
 
-        public SqlConnection getConnection() { 
+        public SqlConnection getConnection() {
+            if (connection.State == System.Data.ConnectionState.Closed || connection.State == System.Data.ConnectionState.Broken)
+            {
+                connection.Open();  // Open the connection if it's not open
+            }
             return connection;
         }
 

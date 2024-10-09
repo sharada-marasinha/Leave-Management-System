@@ -9,7 +9,7 @@ namespace Leave_Management_System.Model
     public class Employee
     {
         // Properties
-        public int EmployeeID { get; set; }
+        public int EmployeeId { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public int AnnualLeaveBalance { get; set; } = 14; // Default to 14 annual leaves
@@ -18,10 +18,9 @@ namespace Leave_Management_System.Model
         public DateTime RoasterStartTime { get; set; }
         public DateTime RoasterEndTime { get; set; }
 
-        // Constructor
-        public Employee(int employeeID, string name, string password)
+        public Employee() { }
+        public Employee(string name, string password)
         {
-            EmployeeID = employeeID;
             Name = name;
             Password = password;
         }
@@ -72,7 +71,7 @@ namespace Leave_Management_System.Model
         // Overriding ToString for easy debugging and display
         public override string ToString()
         {
-            return $"EmployeeID: {EmployeeID}, Name: {Name}, Remaining Leaves: {GetRemainingLeaves()}";
+            return $"EmployeeID: Name: {Name}, Remaining Leaves: {GetRemainingLeaves()}";
         }
     }
 }

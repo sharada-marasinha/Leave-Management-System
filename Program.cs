@@ -1,4 +1,5 @@
 using Leave_Management_System.Admin;
+using Leave_Management_System.Controller.Admin;
 
 namespace Leave_Management_System
 {
@@ -13,7 +14,7 @@ namespace Leave_Management_System
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new AddEmployee());
+            Application.Run(new EmployeeLogin());
         }
     }
 }

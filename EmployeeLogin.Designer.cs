@@ -1,6 +1,6 @@
 ﻿namespace Leave_Management_System
 {
-    partial class Login
+    partial class EmployeeLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            button1 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeLogin));
+            btnLoginOnAction = new Button();
             txtPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            txtUserName = new TextBox();
+            txtId = new TextBox();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             pictureBox2 = new PictureBox();
@@ -47,18 +47,19 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnLoginOnAction
             // 
-            button1.BackColor = Color.MidnightBlue;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(476, 441);
-            button1.Name = "button1";
-            button1.Size = new Size(168, 51);
-            button1.TabIndex = 0;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
+            btnLoginOnAction.BackColor = Color.MidnightBlue;
+            btnLoginOnAction.FlatStyle = FlatStyle.Popup;
+            btnLoginOnAction.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLoginOnAction.ForeColor = Color.White;
+            btnLoginOnAction.Location = new Point(476, 441);
+            btnLoginOnAction.Name = "btnLoginOnAction";
+            btnLoginOnAction.Size = new Size(168, 51);
+            btnLoginOnAction.TabIndex = 0;
+            btnLoginOnAction.Text = "Login";
+            btnLoginOnAction.UseVisualStyleBackColor = false;
+            btnLoginOnAction.Click += btnLoginOnAction_Click;
             // 
             // txtPassword
             // 
@@ -81,16 +82,16 @@
             label2.AutoSize = true;
             label2.Location = new Point(400, 196);
             label2.Name = "label2";
-            label2.Size = new Size(82, 20);
+            label2.Size = new Size(57, 20);
             label2.TabIndex = 4;
-            label2.Text = "User Name";
+            label2.Text = "EMP ID";
             // 
-            // txtUserName
+            // txtId
             // 
-            txtUserName.Location = new Point(400, 236);
-            txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(321, 27);
-            txtUserName.TabIndex = 3;
+            txtId.Location = new Point(400, 236);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(321, 27);
+            txtId.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -179,7 +180,7 @@
             label3.TabIndex = 7;
             label3.Text = "Grifindo Lanka";
             // 
-            // Form1
+            // EmployeeLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -187,11 +188,11 @@
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
-            Controls.Add(txtUserName);
+            Controls.Add(txtId);
             Controls.Add(label1);
             Controls.Add(txtPassword);
-            Controls.Add(button1);
-            Name = "Form1";
+            Controls.Add(btnLoginOnAction);
+            Name = "EmployeeLogin";
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
@@ -203,11 +204,11 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnLoginOnAction;
         private TextBox txtPassword;
         private Label label1;
         private Label label2;
-        private TextBox txtUserName;
+        private TextBox txtId;
         private PictureBox pictureBox1;
         private Panel panel1;
         private Label label5;
