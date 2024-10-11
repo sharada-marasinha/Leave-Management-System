@@ -45,11 +45,46 @@ namespace Leave_Management_System.Controller.EmployeeController
             try
             {
                 int empId = int.Parse(txtEmpId.Text.Trim());
-                int leaveTypeId = (int)((dynamic)cmbLeaveType.SelectedItem).Value; ;
+                int leaveTypeId = (int)((dynamic)cmbLeaveType.SelectedItem).Value;
                 DateTime leaveStartDate = dateStartDate.Value;
                 DateTime leaveEndDate = dateEndDate.Value;
                 string note = richTextNote.Text.Trim();
 
+                int leaveDays = (leaveEndDate - leaveStartDate).Days + 1;
+
+                
+                EmployeeService employeeService = EmployeeService.getInstance();
+                Employee employee = employeeService.GetEmployeeById(empId);
+
+                if (leaveTypeId == 1)
+                {
+                    if (employee.AnnualLeaveBalance < leaveDays)
+                    {
+                        MessageBox.Show("Not enough annual leave balance.", "Insufficient Leave", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    employee.AnnualLeaveBalance -= leaveDays;
+                }
+                else if (leaveTypeId == 2)
+                {
+                    if (employee.CasualLeaveBalance < leaveDays)
+                    {
+                        MessageBox.Show("Not enough casual leave balance.", "Insufficient Leave", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    employee.CasualLeaveBalance -= leaveDays;
+                }
+                else if (leaveTypeId == 3)
+                {
+                    if (employee.ShortLeaveBalance < leaveDays)
+                    {
+                        MessageBox.Show("Not enough short leave balance.", "Insufficient Leave", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    employee.ShortLeaveBalance -= leaveDays; 
+                }
+
+                // Create a new leave application
                 Leave newLeave = new Leave
                 {
                     EmployeeID = empId,
@@ -60,10 +95,16 @@ namespace Leave_Management_System.Controller.EmployeeController
                     Notes = note
                 };
 
+                // Insert the leave application into the database
                 bool isSuccess = LeaveService.getInstance().InsertLeave(newLeave);
 
                 if (isSuccess)
                 {
+                    employeeService.UpdateEmployeeLeaveBalance(employee);
+                    loadLeaveCountLbl();
+                    loadLabels(employee);
+
+
                     MessageBox.Show("Leave application submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -76,6 +117,7 @@ namespace Leave_Management_System.Controller.EmployeeController
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void loadComboBox()
         {
@@ -118,7 +160,6 @@ namespace Leave_Management_System.Controller.EmployeeController
                     case "Reject":rejectLeaveCount++; break;
                 }
             }
-
             lblApprovedLeaveCount.Text=approvedLeaveCount.ToString();
             lblPendingLeaveCount.Text = pendingLeaveCount.ToString();
             lblRejectLeaveCount.Text = rejectLeaveCount.ToString();

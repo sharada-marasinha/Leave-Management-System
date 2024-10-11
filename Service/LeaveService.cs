@@ -287,6 +287,73 @@ namespace Leave_Management_System.Service
 
             return leaves;
         }
+
+        public LeaveType GetLeaveTypeById(int leaveTypeId)
+        {
+            LeaveType leaveType = null;
+
+            try
+            {
+                string query = "SELECT LeaveTypeID, TypeName, Description FROM LeaveType WHERE LeaveTypeID = @LeaveTypeID";
+
+                using (SqlConnection connection = new SqlConnection("Data Source=SHARADA\\SQLEXPRESS01;Initial Catalog=leavemanagmenet;Integrated Security=True;Encrypt=False"))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LeaveTypeID", leaveTypeId);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                leaveType = new LeaveType
+                                {
+                                    LeaveTypeID = reader.GetInt32(0),
+                                    TypeName = reader.GetString(1),
+                                    Description = reader.IsDBNull(2) ? null : reader.GetString(2)
+                                };
+                            }
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return leaveType;
+        }
+        public bool UpdateLeaveStatus(int leaveId, string newStatus)
+        {
+            try
+            {
+                string query = "UPDATE Leave SET LeaveStatus = @NewStatus WHERE LeaveID = @LeaveID";
+
+                using (SqlConnection connection = new SqlConnection("Data Source=SHARADA\\SQLEXPRESS01;Initial Catalog=leavemanagmenet;Integrated Security=True;Encrypt=False"))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@NewStatus", newStatus);
+                        command.Parameters.AddWithValue("@LeaveID", leaveId);
+
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        connection.Close();
+
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating leave status: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
     }
 }
 

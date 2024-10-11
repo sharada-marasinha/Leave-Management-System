@@ -13,6 +13,10 @@ namespace Leave_Management_System.Service
 
         private static EmployeeService instance;
         private EmployeeService() { }
+        public static EmployeeService getInstance()
+        {
+            return instance == null ? instance = new EmployeeService() : instance;
+        }
 
         public bool InsertEmployeeToDatabase(Employee employee)
         {
@@ -192,8 +196,36 @@ namespace Leave_Management_System.Service
             }
         }
 
-        public static EmployeeService getInstance (){
-            return instance ==null? instance = new EmployeeService() : instance;
+
+        public bool UpdateEmployeeLeaveBalance(Employee employee)
+        {
+            try
+            {
+                string query = "UPDATE Employee SET AnnualLeaveBalance = @AnnualLeaveBalance, CasualLeaveBalance = @CasualLeaveBalance, ShortLeaveBalance = @ShortLeaveBalance WHERE EmployeeID = @EmployeeID";
+
+                using (SqlConnection connection = new SqlConnection("Data Source=SHARADA\\SQLEXPRESS01;Initial Catalog=leavemanagmenet;Integrated Security=True;Encrypt=False"))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@AnnualLeaveBalance", employee.AnnualLeaveBalance);
+                        command.Parameters.AddWithValue("@CasualLeaveBalance", employee.CasualLeaveBalance);
+                        command.Parameters.AddWithValue("@ShortLeaveBalance", employee.ShortLeaveBalance);
+                        command.Parameters.AddWithValue("@EmployeeID", employee.EmployeeId);
+
+                        connection.Open();
+                        int result = command.ExecuteNonQuery();
+                        connection.Close();
+
+                        return result > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
+
     }
 }

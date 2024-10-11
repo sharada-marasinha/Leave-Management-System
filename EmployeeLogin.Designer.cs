@@ -42,6 +42,7 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
+            btnAdminLoginOnAction = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -180,11 +181,22 @@
             label3.TabIndex = 7;
             label3.Text = "Grifindo Lanka";
             // 
+            // btnAdminLoginOnAction
+            // 
+            btnAdminLoginOnAction.Location = new Point(476, 512);
+            btnAdminLoginOnAction.Name = "btnAdminLoginOnAction";
+            btnAdminLoginOnAction.Size = new Size(168, 29);
+            btnAdminLoginOnAction.TabIndex = 7;
+            btnAdminLoginOnAction.Text = "are you Admin?";
+            btnAdminLoginOnAction.UseVisualStyleBackColor = true;
+            btnAdminLoginOnAction.Click += btnAdminLoginOnAction_Click;
+            // 
             // EmployeeLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(780, 584);
+            Controls.Add(btnAdminLoginOnAction);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
@@ -217,5 +229,6 @@
         private Label label7;
         private Label label6;
         private PictureBox pictureBox2;
+        private Button btnAdminLoginOnAction;
     }
 }
