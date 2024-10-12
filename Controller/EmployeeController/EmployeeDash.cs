@@ -22,9 +22,6 @@ namespace Leave_Management_System.Controller.EmployeeController
             this.employee = employee;
             loadLabels(employee);
             loadLeaveCountLbl();
-
-
-
         }
 
         private void loadLabels(Employee employee)
@@ -39,7 +36,6 @@ namespace Leave_Management_System.Controller.EmployeeController
 
         }
 
-
         private void btnApplyOnAction_Click(object sender, EventArgs e)
         {
             try
@@ -52,7 +48,6 @@ namespace Leave_Management_System.Controller.EmployeeController
 
                 int leaveDays = (leaveEndDate - leaveStartDate).Days + 1;
 
-                
                 EmployeeService employeeService = EmployeeService.getInstance();
                 Employee employee = employeeService.GetEmployeeById(empId);
 
@@ -83,8 +78,6 @@ namespace Leave_Management_System.Controller.EmployeeController
                     }
                     employee.ShortLeaveBalance -= leaveDays; 
                 }
-
-                // Create a new leave application
                 Leave newLeave = new Leave
                 {
                     EmployeeID = empId,
@@ -94,8 +87,6 @@ namespace Leave_Management_System.Controller.EmployeeController
                     LeaveStatus = "Pending",
                     Notes = note
                 };
-
-                // Insert the leave application into the database
                 bool isSuccess = LeaveService.getInstance().InsertLeave(newLeave);
 
                 if (isSuccess)

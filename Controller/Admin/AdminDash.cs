@@ -60,7 +60,7 @@ namespace Leave_Management_System.Controller.Admin
                     string leaveTypeName = LeaveService.getInstance().GetLeaveTypeById(leave.LeaveTypeID).TypeName;
 
                    
-                    ListViewItem item = new ListViewItem("LV#0"+leave.LeaveID.ToString());
+                    ListViewItem item = new ListViewItem(leave.LeaveID.ToString());
                     item.SubItems.Add(leave.EmployeeID.ToString());
                     item.SubItems.Add(leaveTypeName);
                     item.SubItems.Add(leave.LeaveStartDate.ToShortDateString());
